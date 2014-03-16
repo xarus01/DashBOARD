@@ -8,7 +8,7 @@ $(function(){ //DOM Ready
     ['<li><a href="http://facebook.com/xarus01"><i class="fa fa-facebook-square" style="font-size: 54px;"></i></a></li>', 2, 3],
     ['<li><a href="http://twitter.com/xarus01"><i class="fa fa-twitter-square" style="font-size: 54px;"></i></a></li>', 2, 3],
     ['<li><a href="http://k001kat.tumblr.com/"><i class="fa fa-tumblr-square" style="font-size: 54px;"></i></a></li>', 2, 3],
-    ['<li><a href="http://http://instagram.com/xarus01"><i class="fa fa-instagram" style="font-size: 54px;"></i></a></li>', 2, 3],
+    ['<li><a href="http://instagram.com/xarus01"><i class="fa fa-instagram" style="font-size: 54px;"></i></a></li>', 2, 3],
     ['<li><a href="http://koolkat.wo.gl/blog"><i class="fa fa-pencil-square" style="font-size: 54px;"></i></a></li>', 2, 3],
     ['<li><a href="http://github.com/xarus01"><i class="fa fa-github-square" style="font-size: 54px;"></i></a></li>', 2, 3],
     ['<li><a href="http://koolkat.wo.gl/map"><i class="fa fa-check-square" style="font-size: 54px;"></i></a></li>', 2, 3]
