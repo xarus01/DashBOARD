@@ -21,6 +21,9 @@ $(function(){ //DOM Ready
   renderInstagram();
   renderTumblr();
   renderWPFeed();
+
+//  for map
+  renderMap();
 });
 
 $(window).scroll(function (event) {
@@ -84,4 +87,14 @@ function renderWPFeed() {
 //      console.log($(this)[0].title);
     });
   });
+}
+
+//google map
+function renderMap() {
+  var mapProp = {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
