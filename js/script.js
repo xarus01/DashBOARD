@@ -17,6 +17,8 @@ $(function(){ //DOM Ready
   $.each(widgets, function(i, widget){
     gridster.add_widget.apply(gridster, widget)
   });
+
+  renderInstagram();
 });
 
 $(window).scroll(function (event) {
@@ -41,6 +43,24 @@ $(window).scroll(function (event) {
     }
   }
 });
+
+//instagram photos
+function renderInstagram() {
+  var clientID = "3fe5075c8573464ab24b7e65f4124767";
+  $.getJSON("https://api.instagram.com/v1/users/search?q=xarus01&client_id=" + clientID + "&callback=?", function(res) {
+    var id = res.data[0].id
+    $.getJSON("https://api.instagram.com/v1/users/" + id + "/media/recent/?client_id=" + clientID + "&callback=?", function(res) {
+      var mediaJson = res.data;
+      $(mediaJson).each(function(){
+        if($(this)[0].type == "image") {
+          console.log($(this)[0].images.thumbnail.url);
+//          post.images.thumbnail //url, width, height, maybe use low_resolution?
+          //Do
+        }
+      });
+    });
+  });
+}
 
 /*
 //instagram photos
