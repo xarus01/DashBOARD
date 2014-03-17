@@ -55,3 +55,15 @@ html {
     border: none!important;
     background: red!important;
 }
+
+.footer {
+	height: 60px;
+	bottom: 0;
+	background-color: #EFEFEF;
+	color: #999;
+}
+
+.footer p {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
