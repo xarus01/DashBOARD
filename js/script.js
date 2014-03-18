@@ -91,9 +91,16 @@ function renderWPFeed() {
 
 //google map
 function renderMap() {
+  var latlng = new google.maps.LatLng(37.5655961,126.9332727)
   var mapConf = {
-    center: new google.maps.LatLng(-34.397, 150.644),
-    zoom: 8
+    center: latlng,
+    zoom: 14,
+    disableDefaultUI: true
   };
   var map = new google.maps.Map(document.getElementById("googleMap"), mapConf);
+  var marker = new google.maps.Marker({
+    position: latlng,
+    map: map,
+    title: "location"
+  })
 }
