@@ -91,10 +91,9 @@ function renderWPFeed() {
 
 //google map
 function renderMap() {
-  var mapProp = {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
+  var mapConf = {
+    center: new google.maps.LatLng(-34.397, 150.644),
+    zoom: 8
   };
-  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+  var map = new google.maps.Map(document.getElementById("googleMap"), mapConf);
 }
