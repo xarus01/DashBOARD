@@ -5,12 +5,12 @@ $(function(){ //DOM Ready
     widget_base_dimensions: [60, 30]
   }).data('gridster');
   var widgets = [
-    ['<li><a href="http://github.com/xarus01"><i class="fa fa-github-square" style="font-size: 54px;"></i><p>Github</p></a></li>', 1, 3],
-    ['<li><a href="http://facebook.com/xarus01"><i class="fa fa-facebook-square" style="font-size: 54px;"></i><p>Facebook</p></a></li>', 2, 3],
-    ['<li><a href="http://twitter.com/xarus01"><i class="fa fa-twitter-square" style="font-size: 54px;"></i><p>Twitter</p></a></li>', 2, 3],
-    ['<li><a href="http://k001kat.tumblr.com/"><i class="fa fa-tumblr-square" style="font-size: 54px;"></i><p>Tumblr</p></a></li>', 2, 3],
-    ['<li><a href="http://instagram.com/xarus01"><i class="fa fa-instagram" style="font-size: 54px;"></i><p>Instagram</p></a></li>', 3, 5],
-    ['<li><a href="http://koolkat.wo.gl/blog"><i class="fa fa-pencil-square" style="font-size: 54px;"></i><p>WordPress</p></a></li>', 2, 3]
+    ['<li><a href="http://github.com/"><i class="fa fa-github-square" style="font-size: 54px;"></i><p>Github</p></a></li>', 1, 3],
+    ['<li><a href="http://facebook.com/"><i class="fa fa-facebook-square" style="font-size: 54px;"></i><p>Facebook</p></a></li>', 2, 3],
+    ['<li><a href="http://twitter.com/"><i class="fa fa-twitter-square" style="font-size: 54px;"></i><p>Twitter</p></a></li>', 2, 3],
+    ['<li><a href="http://tumblr.com/"><i class="fa fa-tumblr-square" style="font-size: 54px;"></i><p>Tumblr</p></a></li>', 2, 3],
+    ['<li><a href="http://instagram.com/"><i class="fa fa-instagram" style="font-size: 54px;"></i><p>Instagram</p></a></li>', 3, 5],
+    ['<li><a href="http://yourblog.wp"><i class="fa fa-pencil-square" style="font-size: 54px;"></i><p>WordPress</p></a></li>', 2, 3]
   ];
 
   $.each(widgets, function(i, widget){
@@ -51,7 +51,7 @@ $(window).scroll(function (event) {
 
 //instagram photos
 function renderInstagram() {
-  var clientID = "3fe5075c8573464ab24b7e65f4124767";
+  var clientID = "";
   $.getJSON("https://api.instagram.com/v1/users/search?q=xarus01&client_id=" + clientID + "&callback=?", function(res) {
     var id = res.data[0].id
     $.getJSON("https://api.instagram.com/v1/users/" + id + "/media/recent/?client_id=" + clientID + "&callback=?", function(res) {
@@ -66,12 +66,11 @@ function renderInstagram() {
 }
   
 function renderTumblr() {
-  var apiKey = "HCoCFhyXyzTRYdDoVGy0bcbv3oqk3cvKRUNP5yYD4QuyuzkgP9"
+  var apiKey = ""
   $.getJSON("http://api.tumblr.com/v2/blog/k001kat.tumblr.com/posts/text?api_key="+apiKey+"&callback=?", function(res) {
     var posts = res.response.posts;
     $(posts).each(function(i) {
       var p = $.parseHTML($(this)[0].body);
-//      show <p> only
       $("#tumbl").append('<blockquote class="blockquote-reverse" id="li_'+i+'"></blockquote>');
       $("#tumbl").find("#li_"+i).append($(p)[0]);
       $("#tumbl").find("#li_"+i).append('<footer><a href="'+$(this)[0].post_url+'">'+$(this)[0].date+'</a></footer>');
@@ -81,10 +80,9 @@ function renderTumblr() {
 
 //WP feed
 function renderWPFeed() {
-  $.getJSON("http://koolkat.wo.gl/blog/?feed=json&callback=?", function(res) {
+  $.getJSON("http://yourblog.wp/blog/?feed=json&callback=?", function(res) {
     $(res).each(function() {
       $("#wp").append('<li><h3><a href="'+$(this)[0].permalink+'">'+$(this)[0].title+'</a></h3><p>'+$(this)[0].content+'</p></li>');
-//      console.log($(this)[0].title);
     });
   });
 }
